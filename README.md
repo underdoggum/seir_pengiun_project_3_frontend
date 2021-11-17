@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Project 3 (Front-end)
+## by Jameson Wang, Lucy Liu, & Nathan Noack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Explanation of App
 
-## Available Scripts
+With so much waste in the modern era, from the plethora of restuarants tossing out tons of food, and also for those looking to save some money on food costs--whether it's a struggling small business or a hungry family--this app aims to solve both of those problems by creating a central shopping network for which those two roads to connect. Pulling from from our collective backgrounds in the restaurant and retail industries, we strive to use the power of the web, with the web development knowledge that we now have, to bring these people closer together for the betterment of both.
 
-In the project directory, you can run:
+[Deployed frontend](https://unwasted.netlify.app/)\
+[Backend repo](https://github.com/underdoggum/seir_penguin_project_3_backend)\
+[Deployed backend](https://unwasted-penguins.herokuapp.com/)
 
-### `npm start`
+## Technologies Used
+- React
+- Express
+- Node
+- Bootstrap
+- SASS
+- HTML
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Library/Techniques
+- RESTful Routes
+- CRUD
+- Deployment with Heroku, Netlify 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Intended Component Tree
+```
+App
+ ├── Header
+ ├── Main
+ │     ├── Index
+ │     └── Show
+ └── Footer
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## React Routing Table 
+| Action         | Path                        | HTTP Verb | Purpose                                                                        |
+|:--------------:|:---------------------------:|:---------:|:------------------------------------------------------------------------------:|
+| Index          | /items                      | GET       | List all items                                                             |
+| Show           | /items/:id                  | GET       | Show info about one item                                                   |
 
-### `npm run build`
+## User Stories
+- Users can create an account or log in
+- Users can 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- As a user, I can see a list of all my bookmarks when I visit the page
+- As a user, I can click on one of my bookmarks and have it take me to the linked website
+- As a user, I can create a new bookmark and see that it immediately loads on the page so that I know I successfully added a bookmark
+- As a user, I can delete a bookmark so I can keep my list relevant
+- As a user, I can update a bookmark in case I made a typo or the URL changed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Challenges
