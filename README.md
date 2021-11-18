@@ -40,8 +40,14 @@ App
 | Show           | /items/:id                  | GET       | Show info about one item                                                   |
 
 ## User Stories
+- Right now, the "User" is the restaurant
+
 - Users can create an account or log in
-- Users can 
+- Users can see a list of all restaurants and their shopping cart (main index route)
+- Users can click on their shopping cart, and it shows all items in the cart (cart is extra feature)
+- In the shopping cart, users can delete items (extra feature)
+- In the list of restaurants, users can click on a restaurant, which goes to a show page for that restaurant and all items that restaurant offers
+- In the show page for that restaurant, users can create items, update items, and delete them
 
 
 - As a user, I can see a list of all my bookmarks when I visit the page
