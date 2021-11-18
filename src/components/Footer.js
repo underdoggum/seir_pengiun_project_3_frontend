@@ -1,5 +1,8 @@
 const Footer = (props) => {
-    return <h1>Footer</h1>
+    return <div>
+        <p> Copyright &copy; 2021 </p>
+    </div>
 }
 
 export default Footer;
+
