@@ -12,6 +12,8 @@ const Index = (props) => {
         description: ""
     })
 
+    const handleSelection = (event) 
+
     // conditional statement for rendering if the items list has been fetched
     if (props.items) {
         return (
