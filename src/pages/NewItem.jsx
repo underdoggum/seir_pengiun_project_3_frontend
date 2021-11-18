@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const NewItem = (props) => {
+
+    const navigate = useNavigate();
 
     // state to hold form data, initialized with empty values
     const [newForm, setNewForm] = useState({
@@ -12,22 +14,33 @@ const NewItem = (props) => {
         img: ""
     })
 
-    // handleChange function for when the user enters a keystroke
-    const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value })
+    // multiple handlechanges for each input
+    const handleNameChange = (event) => {
+        setNewForm({ ...newForm, name: event.target.value })
     }
+
+    const handlePriceChange = (event) => {
+        setNewForm({ ...newForm, price: event.target.value })
+    }
+
+    const handleQuantityChange = (event) => {
+        setNewForm({ ...newForm, quantity: event.target.value })
+    }
+
+    const handleDescriptionChange = (event) => {
+        setNewForm({ ...newForm, description: event.target.value })
+    }
+
+    const handleImgChange = (event) => {
+        setNewForm({ ...newForm, img: event.target.value })
+    }
+
 
     // handleSubmit function for the form
     const handleSubmit = (event) => {
         event.preventDefault()
         props.createItem(newForm)
-        setNewForm({
-            name: "",
-            price: 0,
-            quantity: 0,
-            description: "",
-            img: ""
-        })
+        navigate("/items")
     }
 
     const form = (
@@ -39,8 +52,9 @@ const NewItem = (props) => {
                     value={newForm.name}
                     name="name"
                     placeholder="Name of Item"
-                    onChange={handleChange}
+                    onChange={handleNameChange}
                     required
+                    autoFocus
                 />
             </label>
             <label htmlFor="Price">
@@ -50,7 +64,8 @@ const NewItem = (props) => {
                     value={newForm.price}
                     name="price"
                     placeholder="Price"
-                    onChange={handleChange}
+                    onChange={handlePriceChange}
+                    min={0}
                     required
                 />
             </label>
@@ -61,7 +76,8 @@ const NewItem = (props) => {
                     value={newForm.quantity}
                     name="quantity"
                     placeholder="Quantity"
-                    onChange={handleChange}
+                    onChange={handleQuantityChange}
+                    min={0}
                 />
             </label>
             <label htmlFor="Image URL">
@@ -71,17 +87,18 @@ const NewItem = (props) => {
                     value={newForm.img}
                     name="img"
                     placeholder="Image URL"
-                    onChange={handleChange}
+                    onChange={handleImgChange}
                 />
             </label>
             <label htmlFor="Description">
                 Description: 
                 <textarea
+                    style={{resize: "vertical"}}
                     cols={50}
-                    rows={5}
+                    rows={10}
                     value={newForm.description}
                     placeholder="Please enter a brief description of your item"
-                    onChange={handleChange}
+                    onChange={handleDescriptionChange}
                 />
             </label>
             <input type="submit" value="Add Item to Store" />
