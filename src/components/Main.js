@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react"
 import {Route, Routes} from "react-router-dom"
+import EditItem from "../pages/EditItem"
 import Index from "../pages/Index"
-import Show from "../pages/Show"
+import NewItem from "../pages/NewItem"
+import { Link } from "react-router-dom"
 
 const Main = (props) => {
     const [items, setItems] = useState(null)
@@ -30,16 +32,25 @@ const Main = (props) => {
     }, [])
 
     return <main>
+        {/* The below link is in development, may need to refactor depending on how the landing page develops */}
+        <Link to="/items">
+            <button>See all items</button>
+        </Link>
+
         <Routes>
             <Route path="/items" element={
                 <Index
                     items={items}
+                />}
+            />
+            <Route path="/newItem" element={
+                <NewItem
                     createItems={createItems}
                 />}
             />
-            <Route path="/items/:id" element={
-                <Show
-                
+            <Route path="/editItem/:id" element={
+                <EditItem
+                    items={items}
                 />}
             />
         </Routes>
