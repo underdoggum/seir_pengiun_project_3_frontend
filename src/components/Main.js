@@ -16,7 +16,7 @@ const Main = (props) => {
         setItems(data)
     }
 
-    const createItems = async (item) => {
+    const createItem = async (item) => {
         await fetch(URL, {
             method: "post",
             headers: {
@@ -27,12 +27,19 @@ const Main = (props) => {
         getItems()
     }
 
+    // updateItems function (needs to be passed into EditItem.jsx)
+
+
+    // deleteItems function (needs to be passed into Index.jsx)
+
+
+    
     useEffect(() => {
         getItems()
     }, [])
 
     return <main>
-        {/* The below link is in development, may need to refactor depending on how the landing page develops */}
+        {/* The below link just for our use, will need to refactor depending on how the landing page develops with user auth */}
         <Link to="/items">
             <button>See all items</button>
         </Link>
@@ -45,7 +52,7 @@ const Main = (props) => {
             />
             <Route path="/newItem" element={
                 <NewItem
-                    createItems={createItems}
+                    createItem={createItem}
                 />}
             />
             <Route path="/editItem/:id" element={
