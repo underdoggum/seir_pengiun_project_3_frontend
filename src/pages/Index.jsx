@@ -12,7 +12,6 @@ const Index = (props) => {
         description: ""
     })
 
-
     // conditional statement for rendering if the items list has been fetched
     if (props.items) {
         return (
