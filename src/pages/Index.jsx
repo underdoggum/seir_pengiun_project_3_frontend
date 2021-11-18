@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 const Index = (props) => {
 
     // state to hold which item will be displayed on the list, default/initial state on page load is the first item
-    const [displayedItem, setDisplayedItem] = useState(props.items[0])
-
+    const [displayedItem, setDisplayedItem] = useState(props.items ? props.items[0] : {
+        name: "",
+        img: "",
+        quantity: 0,
+        price: 0,
+        description: ""
+    })
 
 
     // conditional statement for rendering if the items list has been fetched
