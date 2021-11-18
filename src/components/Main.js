@@ -31,10 +31,19 @@ const Main = (props) => {
 
     return <main>
         <Routes>
-            <Route path="/" element={<index/>}/>
-            <Route path="/items/:id" element={<Show/>}/>
+            <Route path="/items" element={
+                <Index
+                    items={items}
+                    createItems={createItems}
+                />}
+            />
+            <Route path="/items/:id" element={
+                <Show
+                
+                />}
+            />
         </Routes>
     </main>
 }
 
-export default Main;
+export default Main
