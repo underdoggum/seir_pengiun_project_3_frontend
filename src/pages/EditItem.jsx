@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
 
-// should receive props.items and props.updateItem function (needs to send two arguments, see Bookmark'd Index.jsx) from Main.jsx
 const EditItem = (props) => {
     const navigate = useNavigate()
     const params = useParams()
