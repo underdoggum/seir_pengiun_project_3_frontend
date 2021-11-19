@@ -64,7 +64,7 @@ const Index = (props) => {
     // conditional statement for rendering if the items list has been fetched
     if (props.items) {
         return (
-            <section className="index">
+            <section className="index container">
                 <Link to={"/newItem"}>
                     <button>Add Item</button>
                 </Link>
@@ -72,10 +72,10 @@ const Index = (props) => {
                 <Link to={`/editItem/${displayedItem._id}`}>
                 <button className="edit-button">Edit Item</button>
                 </Link>
-                <div className="list-items">
+                <div className="list-items row">
                     {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
                     <label htmlFor="Select an item">
-                        <select style={{overflowY: "auto"}} value={displayedItem} onChange={handleSelection} size={props.items.length}>
+                        <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
                             {props.items.map(item => {
 
                                 {/* BUG */}
@@ -90,7 +90,7 @@ const Index = (props) => {
                     </label>
                     
                 </div>
-                <div className="show-items">
+                <div className="show-items col-xs-6">
                     <h1>Name: {displayedItem.name}</h1>
                     <img src={displayedItem.img} alt={displayedItem.name} width={400} />
                     <h4>Price: {displayedItem.price}</h4>
