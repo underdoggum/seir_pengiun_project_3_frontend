@@ -40,6 +40,7 @@ const EditItem = (props) => {
     //                 required
     //             />
     //         </label>
+    //     </form>
 
     return (
         <div className="EditItem">

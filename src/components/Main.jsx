@@ -28,11 +28,25 @@ const Main = (props) => {
     }
 
     // updateItems function (needs to be passed into EditItem.jsx)
+    const updateItem = async (item, id) => {
+        await fetch(URL + id, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(item),
+        })
+        getItems();
+    };
 
 
     // deleteItems function (needs to be passed into Index.jsx)
-
-
+    const deleteItem = async id => {
+        await fetch(URL + id, {
+            method: "delete",
+        });
+        getItems();
+    }
     
     useEffect(() => {
         getItems()
@@ -47,6 +61,7 @@ const Main = (props) => {
         <Routes>
             <Route path="/items" element={
                 <Index
+                    deleteItem={deleteItem}
                     items={items}
                 />}
             />
@@ -57,6 +72,7 @@ const Main = (props) => {
             />
             <Route path="/editItem/:id" element={
                 <EditItem
+                    updateItem={updateItem}
                     items={items}
                 />}
             />
