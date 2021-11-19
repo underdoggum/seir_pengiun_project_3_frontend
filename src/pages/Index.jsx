@@ -5,35 +5,19 @@ const Index = (props) => {
     const navigate = useNavigate()
     const params = useParams()
     const id = params.id
-    // const item = props.displayedItem
 
     // state to hold which item will be displayed on the list, default/initial state on page load is the first item
-    const [displayedItem, setDisplayedItem] = useState({
-        name: "",
-        img: "",
-        quantity: "",
-        price: "",
-        description: ""
-    })
+    const [displayedItem, setDisplayedItem] = useState({})
 
     const [editForm, setEditForm] = useState({});
 
     useEffect(() => {
         if (props.items) {
-            const item = props.items.find(b => b._id === id);
-            setEditForm(item);
+            const item = props.items.find(b => b._id === id)
+            setEditForm(item)
+            setDisplayedItem(props.items[0])
         }
-    }, [props.items]);
-
-    if (props.items) {
-        const item = props.items.find(b => b._id === id);
-    
-    const handleChange = (event) => {
-        const newState = {...editForm}
-        newState[event.target.name] = event.target.value
-        setEditForm(newState)
-    }
-}
+    }, [props.items])
     
     // handleSubmit for form
     const handleSubmit = (event) => {
@@ -77,13 +61,7 @@ const Index = (props) => {
                     <label htmlFor="Select an item">
                         <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
                             {props.items.map(item => {
-
-                                {/* BUG */}
-                                {/* Bug 1: figure out how to keep the user-selected item selected in the dropdown ("selected" property in option JSX below doesn't keep when re-rendering) */}
-                                {/* Bug 2: also, first item in props.items can't be shown */}
-                                return <option selected={item.name === displayedItem.name} value={item.name}>{item.name}</option>
-                                {/* ENDBUG lol */}
-
+                                return <option value={item.name}>{item.name}</option>
                             })}
                             
                         </select>
