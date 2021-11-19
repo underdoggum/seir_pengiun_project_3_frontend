@@ -44,6 +44,7 @@ const EditItem = (props) => {
         navigate("/items")
     }
 
+
     const form = (
         <form onSubmit={handleSubmit}>
             <label htmlFor="Name">
@@ -105,6 +106,7 @@ const EditItem = (props) => {
             <input type="submit" value="Submit changes" />
         </form>
     )
+
 
     return (
         <div className="EditItem">
