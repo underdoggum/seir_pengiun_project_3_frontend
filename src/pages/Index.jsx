@@ -49,26 +49,29 @@ const Index = (props) => {
     if (props.items) {
         return (
             <section className="index container">
-                <Link to={"/newItem"}>
-                    <button>Add Item</button>
-                </Link>
-                <button className="delete-button" onClick={removeItem}>Delete Item</button>
-                <Link to={`/editItem/${displayedItem._id}`}>
-                <button className="edit-button">Edit Item</button>
-                </Link>
-                <div className="list-items row">
-                    {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
-                    <label htmlFor="Select an item">
-                        <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
-                            {props.items.map(item => {
-                                return <option value={item.name}>{item.name}</option>
-                            })}
-                            
-                        </select>
-                    </label>
-                    
+                <div className="index-list">
+                    <div className="list-items">
+                        {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
+                        <label htmlFor="Select an item">
+                            <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
+                                {props.items.map(item => {
+                                    return <option value={item.name}>{item.name}</option>
+                                })}
+                            </select>
+                        </label>
+                    </div>
+                    <div className="index-buttons">
+                        <Link to={"/newItem"}>
+                            <button>Add Item</button>
+                        </Link>
+                            <button className="delete-button" onClick={removeItem}>Delete Item</button>
+                        <Link to={`/editItem/${displayedItem._id}`}>
+                            <button className="edit-button">Edit Item</button>
+                        </Link>
+                    </div>
                 </div>
-                <div className="show-items col-xs-6">
+
+                <div className="show-items">
                     <h1>Name: {displayedItem.name}</h1>
                     <img src={displayedItem.img} alt={displayedItem.name} width={400} />
                     <h4>Price: {displayedItem.price}</h4>
