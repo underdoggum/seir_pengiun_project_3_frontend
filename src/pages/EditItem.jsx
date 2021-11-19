@@ -61,7 +61,7 @@ const EditItem = (props) => {
             <label htmlFor="Price">
                 Price (USD): 
                 <input
-                    type="text"
+                    type="number"
                     value={editForm.price}
                     name="price"
                     placeholder="Price"
@@ -73,7 +73,7 @@ const EditItem = (props) => {
             <label htmlFor="Quantity">
                 Quantity: 
                 <input
-                    type="text"
+                    type="number"
                     value={editForm.quantity}
                     name="quantity"
                     placeholder="Quantity"
