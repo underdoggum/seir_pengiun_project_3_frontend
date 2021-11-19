@@ -72,8 +72,8 @@ const Index = (props) => {
                 </div>
 
                 <div className="show-items">
-                    <h1>Name: {displayedItem.name}</h1>
                     <img src={displayedItem.img} alt={displayedItem.name} width={400} />
+                    <h1>Name: {displayedItem.name}</h1>
                     <h4>Price: {displayedItem.price}</h4>
                     <h4>Quantity: {displayedItem.quantity}</h4>
                     <p>Description: {displayedItem.description}</p>
