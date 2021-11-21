@@ -27,21 +27,22 @@ const MainCopy = (props) => {
         setItems(data)
     }
 
-    // const createItem = async (item) => {
-    //     await fetch(URL, {
-    //         method: "post",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //             body: JSON.stringify(item)
-    //     })
-    //     getItems()
-    // }
+    const createItem = async (item) => {
+        await fetch(URL, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "bearer" + token
+            },
+                body: JSON.stringify(item)
+        })
+        getItems()
+    }
 
     // updateItems function (needs to be passed into EditItem.jsx)
 
 
-    // deleteItems function (needs to be passed into Index.jsx)
+    // deleteItems function (needs to be passed into Ind .jsx)
 
 
     

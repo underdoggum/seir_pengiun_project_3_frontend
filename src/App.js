@@ -32,7 +32,7 @@ useEffect(()=>{
         <Link to="/"><h1>UNWASTED</h1></Link>
         <Header/>
             <Routes>
-              <Route exact path = "/" element={ gState.token ? <MainCopy/> :  <Home/> }/>
+              <Route path = "/*" element={ gState.token ? <Main/> :  <Home/> }/>
               <Route path ="/signup" element={<SignUp/>}/>
               <Route path ="/login" element={<Login/>}/>
               {/* <Route path ="/dashboard" element={<h1>Dashboard</h1>}/> */}
