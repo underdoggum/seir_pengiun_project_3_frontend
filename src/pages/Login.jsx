@@ -45,7 +45,7 @@ const Login = (props) => {
             window.localStorage.setItem("token", JSON.stringify(data))
             setGState({...gState, token: data.token})
             setForm(blank)
-            navigate("/login")
+            navigate("/")
         });
     };
 
