@@ -1,16 +1,31 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Index = (props) => {
+    const navigate = useNavigate()
+    const params = useParams()
+    const id = params.id
 
     // state to hold which item will be displayed on the list, default/initial state on page load is the first item
-    const [displayedItem, setDisplayedItem] = useState({
-        name: "",
-        img: "",
-        quantity: "",
-        price: "",
-        description: ""
-    })
+    const [displayedItem, setDisplayedItem] = useState({})
+
+    const [editForm, setEditForm] = useState({});
+
+    useEffect(() => {
+        if (props.items) {
+            const item = props.items.find(b => b._id === id)
+            setEditForm(item)
+            setDisplayedItem(props.items[0])
+        }
+    }, [props.items])
+    
+    // handleSubmit for form
+    const handleSubmit = (event) => {
+        const item = props.items.find(b => b._id === id);
+        event.preventDefault()
+        props.updateItem(editForm, item._id)
+        navigate("/")
+    }
 
     // handleSelection function to deal with user selecting an item
     const handleSelection = (event) => {
@@ -20,8 +35,14 @@ const Index = (props) => {
             img: props.items.find(item => item.name === event.target.value).img,
             quantity: props.items.find(item => item.name === event.target.value).quantity,
             price: props.items.find(item => item.name === event.target.value).price,
-            description: props.items.find(item => item.name === event.target.value).description
+            description: props.items.find(item => item.name === event.target.value).description,
+            _id: props.items.find(item => item.name === event.target.value)._id
         })
+    }
+
+    const removeItem = () => {
+        props.deleteItem(displayedItem._id)
+        navigate("/items")
     }
 
     // conditional statement for rendering if the items list has been fetched
@@ -31,19 +52,18 @@ const Index = (props) => {
                 <Link to={"/newItem"}>
                     <button>Add Item</button>
                 </Link>
+                <button className="delete-button" onClick={removeItem}>Delete Item</button>
+                <Link to={`/editItem/${displayedItem._id}`}>
+                <button className="edit-button">Edit Item</button>
+                </Link>
                 <div className="list-items">
                     {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
                     <label htmlFor="Select an item">
-                        <select style={{overflowY: "auto"}} value={displayedItem} onChange={handleSelection} size={props.items.length}>
+                        <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
                             {props.items.map(item => {
-
-                                {/* BUG */}
-                                {/* Bug 1: figure out how to keep the user-selected item selected in the dropdown ("selected" property in option JSX below doesn't keep when re-rendering) */}
-                                {/* Bug 2: also, first item in props.items can't be shown */}
-                                return <option selected={item.name === displayedItem.name} value={item.name}>{item.name}</option>
-                                {/* ENDBUG lol */}
-
+                                return <option value={item.name}>{item.name}</option>
                             })}
+                            
                         </select>
                     </label>
                     
@@ -60,7 +80,7 @@ const Index = (props) => {
     } else {
         return <h1>Loading...</h1>
     }
-
 }
+
 
 export default Index;
