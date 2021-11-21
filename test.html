@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //SIGNUP
+        // fetch ("http://localhost:7000/auth/signup", {
+        //     method: "post",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({username: "lucyliu2", password:"password"})
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+
+        //LOGIN
+
+       
+        // fetch ("http://localhost:7000/auth/login", {
+        //     method: "post",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({username: "lucyliu2", password:"password"})
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+
+
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y3lsaXUyIiwiaWF0IjoxNjM3NDQ0NDYyfQ._ZhCd2a67wn9n13nEBPricillYLLQDww1g6FjuYEWz4"
+
+        //Create
+        fetch ("http://localhost:7000/items/", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json", 
+                "Authorization": `bearer ${token}`
+            },
+            body: JSON.stringify({name: "i am an item", quantity: "2", price: "2", description: "it's beautiful", img: "randomimg"})
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+
+
+    </script>
+</body>
+</html>

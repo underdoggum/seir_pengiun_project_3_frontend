@@ -11,11 +11,11 @@ const Validation = (form) => {
 
     // referenced - https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 
-    if(!form.email){
-        errors.email="Email is required!"
-    } else if (!/\S+@\S+\.\S+/.test(form.email)){
-        errors.email = "Email is invalid"
-    }
+    // if(!form.email){
+    //     errors.email="Email is required!"
+    // } else if (!/\S+@\S+\.\S+/.test(form.email)){
+    //     errors.email = "Email is invalid"
+    // }
 
 
     if(!form.password){
