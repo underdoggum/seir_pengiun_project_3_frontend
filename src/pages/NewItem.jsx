@@ -44,8 +44,8 @@ const NewItem = (props) => {
     }
 
     const form = (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="Name">
+        <form onSubmit={handleSubmit} className="container">
+            <label htmlFor="Name" className="col">
                 Name: 
                 <input
                     type="text"
@@ -57,7 +57,7 @@ const NewItem = (props) => {
                     autoFocus
                 />
             </label>
-            <label htmlFor="Price">
+            <label htmlFor="Price" className="col">
                 Price (USD): 
                 <input
                     type="text"
@@ -69,7 +69,7 @@ const NewItem = (props) => {
                     required
                 />
             </label>
-            <label htmlFor="Quantity">
+            <label htmlFor="Quantity" className="col">
                 Quantity: 
                 <input
                     type="text"
@@ -80,7 +80,7 @@ const NewItem = (props) => {
                     min={0}
                 />
             </label>
-            <label htmlFor="Image URL">
+            <label htmlFor="Image URL" className="col">
                 Image URL: 
                 <input
                     type="text"
@@ -90,7 +90,7 @@ const NewItem = (props) => {
                     onChange={handleImgChange}
                 />
             </label>
-            <label htmlFor="Description">
+            <label htmlFor="Description" className="col">
                 Description: 
                 <textarea
                     style={{resize: "vertical"}}
@@ -101,7 +101,7 @@ const NewItem = (props) => {
                     onChange={handleDescriptionChange}
                 />
             </label>
-            <input type="submit" value="Add Item to Store" />
+            <input type="submit" value="Add Item to Store" className="submit-button"/>
         </form>
     )
 

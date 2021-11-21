@@ -21,10 +21,38 @@ code {
   border: solid black 2px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.list-items {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .show-items {
   border: solid black 2px;
-  padding: 25px;
+  padding: 10px;
+}
+
+.item-image {
+  border: solid rgb(126, 123, 123) 1px;
+}
+
+.add-button, .delete-button, .edit-button {
+  background-color: #414bb2;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  margin: 25px 10px 0 10px;
+}
+
+.container {
+  border: 1px solid black;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
 }

@@ -62,7 +62,7 @@ const Index = (props) => {
                     </div>
                     <div className="index-buttons">
                         <Link to={"/newItem"}>
-                            <button>Add Item</button>
+                            <button className="add-button">Add Item</button>
                         </Link>
                             <button className="delete-button" onClick={removeItem}>Delete Item</button>
                         <Link to={`/editItem/${displayedItem._id}`}>
@@ -72,11 +72,11 @@ const Index = (props) => {
                 </div>
 
                 <div className="show-items">
-                    <img src={displayedItem.img} alt={displayedItem.name} width={400} />
-                    <h1>Name: {displayedItem.name}</h1>
-                    <h4>Price: {displayedItem.price}</h4>
-                    <h4>Quantity: {displayedItem.quantity}</h4>
-                    <p>Description: {displayedItem.description}</p>
+                    <img src={displayedItem.img} alt={displayedItem.name} width={400} className="item-image" />
+                    <h1 className="item-name">Name: {displayedItem.name}</h1>
+                    <h4 className="item-price">Price: {displayedItem.price}</h4>
+                    <h4 className="item-quantity">Quantity: {displayedItem.quantity}</h4>
+                    <p className="item-description">Description: {displayedItem.description}</p>
                 </div>
             </section>
         )
