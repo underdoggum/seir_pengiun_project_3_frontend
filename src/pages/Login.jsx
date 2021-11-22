@@ -58,12 +58,14 @@ return (
                 name="username"
                 value={form.username}
                 onChange={handleChange}
-            />
+                placeholder="Username"
+            /> <br />
             <input 
                 type="password"
                 name="password"
                 value={form.password}
                 onChange={handleChange}
+                placeholder="Password"
             />
             <input
             type="submit" value="Login"
