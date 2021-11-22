@@ -177,7 +177,7 @@ const NewItem = (props) => {
         value="Add Item to Store" 
         className="submit-button"
         onClick={handleSubmit}
-        >Bootstrap button
+        >Add Item
         </Button>
     </ListGroup>
 </Card>
