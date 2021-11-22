@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Card, ListGroup } from "react-bootstrap"
+import { Card, ListGroup, Button } from "react-bootstrap"
 
 const NewItem = (props) => {
 
@@ -111,8 +111,8 @@ const NewItem = (props) => {
             <Link to="/items">
                 <button>Back to Your Items</button>
             </Link>
-            <Card style={{ width: '18rem' }}>
-  <ListGroup.Item variant="flush">
+            <Card style={{ width: '40rem' }}>
+  <ListGroup variant="flush">
     <ListGroup.Item
             htmlFor="Name" className="col">
                 Name: 
@@ -173,10 +173,14 @@ const NewItem = (props) => {
         onChange={handleDescriptionChange}
     />
     </ListGroup.Item>
-    <ListGroup.Item
-                type="submit" value="Add Item to Store" className="submit-button"
-                />
-    </ListGroup.Item>
+        <Button
+        type="submit" 
+        value="Add Item to Store" 
+        className="submit-button"
+        onClick={handleSubmit}
+        >Add Item
+        </Button>
+    </ListGroup>
 </Card>
             {/* {form} */}
         </div>

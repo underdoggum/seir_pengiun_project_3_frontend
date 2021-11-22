@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-
 const Index = (props) => {
     const navigate = useNavigate()
     const params = useParams()
     const id = params.id
-
     // state to hold which item will be displayed on the list, default/initial state on page load is the first item
     const [displayedItem, setDisplayedItem] = useState({})
-
     const [editForm, setEditForm] = useState({});
-
     useEffect(() => {
         if (props.items) {
             const item = props.items.find(b => b._id === id)
@@ -18,7 +14,6 @@ const Index = (props) => {
             setDisplayedItem(props.items[0])
         }
     }, [props.items])
-    
     // handleSubmit for form
     const handleSubmit = (event) => {
         const item = props.items.find(b => b._id === id);
@@ -26,7 +21,6 @@ const Index = (props) => {
         props.updateItem(editForm, item._id)
         navigate("/")
     }
-
     // handleSelection function to deal with user selecting an item
     const handleSelection = (event) => {
         setDisplayedItem({
@@ -39,12 +33,10 @@ const Index = (props) => {
             _id: props.items.find(item => item.name === event.target.value)._id
         })
     }
-
     const removeItem = () => {
         props.deleteItem(displayedItem._id)
         navigate("/items")
     }
-
     // conditional statement for rendering if the items list has been fetched
     if (props.items && props.items == 0) {
         return (
@@ -80,7 +72,6 @@ const Index = (props) => {
                         </Link>
                     </div>
                 </div>
-
                 <div className="show-items">
                     <img src={displayedItem.img} alt={displayedItem.name} width={400} className="item-image" />
                     <h1 className="item-name">Name: {displayedItem.name}</h1>
@@ -94,6 +85,4 @@ const Index = (props) => {
         return <h1>Loading...</h1>
     }
 }
-
-
 export default Index;
