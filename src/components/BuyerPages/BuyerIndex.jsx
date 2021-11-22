@@ -1,3 +1,4 @@
+
 /* To-do in Main.jsx:
  - make a conditional rendering for Index if the user is a seller
  - make a conditional rendering for BuyerIndex if the user is a buyer
@@ -124,5 +125,7 @@ const BuyerIndex = (props) => {
         return <h1>Loading...</h1>
     }
 }
+
+// }
 
 export default BuyerIndex

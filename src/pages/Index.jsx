@@ -48,32 +48,35 @@ const Index = (props) => {
     // conditional statement for rendering if the items list has been fetched
     if (props.items) {
         return (
-            <section className="index">
-                <Link to={"/newItem"}>
-                    <button>Add Item</button>
-                </Link>
-                <button className="delete-button" onClick={removeItem}>Delete Item</button>
-                <Link to={`/editItem/${displayedItem._id}`}>
-                <button className="edit-button">Edit Item</button>
-                </Link>
-                <div className="list-items">
-                    {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
-                    <label htmlFor="Select an item">
-                        <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
-                            {props.items.map(item => {
-                                return <option value={item.name}>{item.name}</option>
-                            })}
-                            
-                        </select>
-                    </label>
-                    
+            <section className="index container">
+                <div className="index-list">
+                    <div className="list-items">
+                        {/* reference for using select/option in React: https://reactjs.org/docs/forms.html#the-select-tag */}
+                        <label htmlFor="Select an item">
+                            <select style={{overflowY: "auto"}} value={displayedItem.name} onChange={handleSelection} size={props.items.length}>
+                                {props.items.map(item => {
+                                    return <option value={item.name}>{item.name}</option>
+                                })}
+                            </select>
+                        </label>
+                    </div>
+                    <div className="index-buttons">
+                        <Link to={"/newItem"}>
+                            <button className="add-button">Add Item</button>
+                        </Link>
+                            <button className="delete-button" onClick={removeItem}>Delete Item</button>
+                        <Link to={`/editItem/${displayedItem._id}`}>
+                            <button className="edit-button">Edit Item</button>
+                        </Link>
+                    </div>
                 </div>
+
                 <div className="show-items">
-                    <h1>Name: {displayedItem.name}</h1>
-                    <img src={displayedItem.img} alt={displayedItem.name} width={400} />
-                    <h4>Price: {displayedItem.price}</h4>
-                    <h4>Quantity: {displayedItem.quantity}</h4>
-                    <p>Description: {displayedItem.description}</p>
+                    <img src={displayedItem.img} alt={displayedItem.name} width={400} className="item-image" />
+                    <h1 className="item-name">Name: {displayedItem.name}</h1>
+                    <h4 className="item-price">Price: {displayedItem.price}</h4>
+                    <h4 className="item-quantity">Quantity: {displayedItem.quantity}</h4>
+                    <p className="item-description">Description: {displayedItem.description}</p>
                 </div>
             </section>
         )
