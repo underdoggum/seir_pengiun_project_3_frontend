@@ -15,7 +15,7 @@ export const GlobalCtx = createContext(null)
  
 
 function App() {
-  const [gState, setGState] = useState({ url:"http://localhost:7000", token: null});
+  const [gState, setGState] = useState({ url:"https://unwasted-backend.herokuapp.com", token: null});
 
 //seeing if already logged in
 useEffect(()=>{
@@ -32,7 +32,7 @@ useEffect(()=>{
         <Link to="/"><h1>UNWASTED</h1></Link>
         <Header/>
             <Routes>
-              <Route path = "/*" element={ gState.token ? <Main/> :  <Home/> }/>
+              <Route path = "/*" element={ gState.token ? <MainCopy/> :  <Home/> }/>
               <Route path ="/signup" element={<SignUp/>}/>
               <Route path ="/login" element={<Login/>}/>
               {/* <Route path ="/dashboard" element={<h1>Dashboard</h1>}/> */}

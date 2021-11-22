@@ -5,10 +5,8 @@ import Index from "../pages/Index"
 import NewItem from "../pages/NewItem"
 import { Link } from "react-router-dom"
 import { GlobalCtx } from "../App"
-import React from "react"
 
-
-const MainCopy = (props) => {
+const Main = (props) => {
 
     const {gState, setGState} = useContext(GlobalCtx)
     const {url, token} = gState;
@@ -19,7 +17,7 @@ const MainCopy = (props) => {
     const getItems = async () => {
         const response = await fetch(url + "/items/", {
             method: "get",
-            headers:{
+            headers: {
                 Authorization: "bearer " + token
             }
         })
@@ -28,11 +26,11 @@ const MainCopy = (props) => {
     }
 
     const createItem = async (item) => {
-        await fetch(URL, {
+        await fetch(url + "/items/", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "bearer" + token
+                Authorization: `bearer ` + token
             },
                 body: JSON.stringify(item)
         })
@@ -40,11 +38,27 @@ const MainCopy = (props) => {
     }
 
     // updateItems function (needs to be passed into EditItem.jsx)
+    const updateItem = async (item, id) => {
+        await fetch(url + "/items/" + id, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `bearer ` + token
+            },
+            body: JSON.stringify(item),
+        })
+        getItems();
+    };
 
 
-    // deleteItems function (needs to be passed into Ind .jsx)
-
-
+    // deleteItems function (needs to be passed into Index.jsx)
+    const deleteItem = async id => {
+        await fetch(url + "/items/" + id, {
+            method: "delete",
+            Authorization: `bearer ` + token
+        });
+        getItems();
+    }
     
     useEffect(() => {
         getItems()
@@ -52,16 +66,14 @@ const MainCopy = (props) => {
 
     return <main>
         {/* The below link just for our use, will need to refactor depending on how the landing page develops with user auth */}
-        {/* <Link to="/items">
+        <Link to="/items">
             <button>See all items</button>
-        </Link> */}
+        </Link>
 
-        <h2>HEY</h2>
-
-        
         <Routes>
             <Route path="/items" element={
                 <Index
+                    deleteItem={deleteItem}
                     items={items}
                 />}
             />
@@ -72,6 +84,7 @@ const MainCopy = (props) => {
             />
             <Route path="/editItem/:id" element={
                 <EditItem
+                    updateItem={updateItem}
                     items={items}
                 />}
             />
@@ -79,4 +92,4 @@ const MainCopy = (props) => {
     </main>
 }
 
-export default MainCopy
+export default Main

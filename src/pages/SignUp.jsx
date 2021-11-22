@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { GlobalCtx } from '../App';
-
 // import Validation from '../components/SignUpPages/Validation';
 
 
@@ -17,11 +16,7 @@ const SignUp = (props) => {
         password: ""
     }
 
-    const [form, setForm] = React.useState(blank)
-
-    // const [errors, setErrors] = useState({});
-    // const [dataIsCorrect, setDataIsCorrect] = useState(false); 
-
+    const [form, setForm] = useState(blank)
 
     const handleChange = (event) => {
         setForm({
@@ -51,22 +46,6 @@ const SignUp = (props) => {
     };
 
 
-
-
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     // setErrors(Validation(form));
-    //     // setDataIsCorrect(true);
-    // }; 
-
-
-    // useEffect(()=>{
-    //     if(Object.keys(errors).length === 0 && dataIsCorrect){
-    //         submitForm(true);
-    //     }
-    // }, [errors]); 
-
 return (
     <div>
         <form onSubmit = {handleSubmit}>
@@ -91,48 +70,3 @@ return (
 };
 
 export default SignUp
-
-
-
-//         <div className = "Container">
-//             <div className = "app-wrapper">
-//                 <div>
-//                     <h2>Create Account</h2>
-//                 </div>
-//                 <form className="signup-form">
-//                     <div>
-//                         <label>Name:</label>
-//                         <input 
-//                         type="text"
-//                         name="name"
-//                         value={form.name}
-//                         onChange={handleChange}
-//                         />
-//                         {/* {errors.name && <p>{errors.name}</p>}   */}
-//  {/* if there is an error it will be stored in paragraph tag */}
-//                     </div>
-//                     <div>
-//                         <label>Email:</label>
-//                         <input
-//                          type="email"
-//                          name="email"
-//                         value={form.email}
-//                         onChange={handleChange}/>
-//                         {/* {errors.name && <p>{errors.email}</p>} */}
-//                     </div>
-//                     <div>
-//                         <label>Password:</label>
-//                         <input
-//                          type="password"
-//                          name="password"
-//                          value={form.password}
-//                          onChange={handleChange}/>
-//                          {/* {errors.name && <p>{errors.password}</p>} */}
-//                     </div>
-//                     <div>
-//                         <button onClick={handleFormSubmit}>SIGN UP</button>
-//                     </div>
-//                 </form>
-//             </div>
-            
-//         </div>
