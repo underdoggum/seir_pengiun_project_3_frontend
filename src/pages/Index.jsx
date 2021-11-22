@@ -46,7 +46,17 @@ const Index = (props) => {
     }
 
     // conditional statement for rendering if the items list has been fetched
-    if (props.items) {
+    if (props.items && props.items == 0) {
+        return (
+            <>
+                <h1>No items</h1>
+                <h4>Want to create one?</h4>
+                <Link to={"/newItem"}>
+                    <button className="add-button">Add Item</button>
+                </Link>
+            </>
+        )
+    } else if (props.items) {
         return (
             <section className="index container">
                 <div className="index-list">

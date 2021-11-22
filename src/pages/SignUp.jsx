@@ -27,6 +27,7 @@ const SignUp = (props) => {
 
 
     const handleSubmit = (event) => {
+        console.table(form)
         event.preventDefault()
         const {username, password} = form;
 
@@ -46,27 +47,76 @@ const SignUp = (props) => {
     };
 
 
-return (
-    <div>
-        <form onSubmit = {handleSubmit}>
-            <input 
-                type="text"
-                name="username"
-                value={form.username}
-                onChange={handleChange}
-            />
-            <input 
-                type="password"
-                name="password"
-                value={form.password}
-                onChange={handleChange}
-            />
-            <input
-            type="submit" value="signup"
-            />
-        </form>
-    </div>
-);
-};
+    const sellerForm = (
+        <div>
+            <form onSubmit = {handleSubmit}>
+                <input 
+                    type="text"
+                    name="username"
+                    value={form.username}
+                    onChange={handleChange}
+                    placeholder="Username"
+                /> <br />
+                <input 
+                    type="password"
+                    name="password"
+                    value={form.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                /> <br />
+
+                <input
+                    type="radio"
+                    id="seller"
+                    name="isSeller"
+                    value={true}
+                    defaultChecked
+                />
+                <label htmlFor="seller">Restaurant</label><br />
+                <input
+                    type="radio"
+                    id="buyer"
+                    name="isSeller"
+                    value={false}
+                />
+                <label htmlFor="seller">Buyer</label><br />
+
+                <input
+                    type="text"
+                    name="sellerName"
+                    value={form.sellerName}
+                    onChange={handleChange}
+                    placeholder="Your Restaurant's Name"
+                /> <br />
+                <input
+                    type="text"
+                    name="phoneNumber"
+                    value={form.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="Phone Number"
+                /> <br />
+                <input
+                    type="text"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                /> <br />
+
+                <input
+                type="submit" value="Sign Up"
+                />
+            </form>
+        </div>
+    )
+
+
+    // if user is a seller, return seller form
+    return (
+        sellerForm
+    )
+
+    // if user 
+}
 
 export default SignUp
