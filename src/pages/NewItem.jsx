@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { Card, ListGroup } from "react-bootstrap"
 
 const NewItem = (props) => {
 
@@ -35,7 +36,6 @@ const NewItem = (props) => {
         setNewForm({ ...newForm, img: event.target.value })
     }
 
-
     // handleSubmit function for the form
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -43,9 +43,77 @@ const NewItem = (props) => {
         navigate("/items")
     }
 
-    const form = (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="Name">
+    // const form = (
+    //     <form onSubmit={handleSubmit} className="container">
+    //         <label htmlFor="Name" className="col">
+    //             Name: 
+    //             <input
+    //                 type="text"
+    //                 value={newForm.name}
+    //                 name="name"
+    //                 placeholder="Name of Item"
+    //                 onChange={handleNameChange}
+    //                 required
+    //                 autoFocus
+    //             />
+    //         </label>
+    //         <label htmlFor="Price" className="col">
+    //             Price (USD): 
+    //             <input
+    //                 type="text"
+    //                 value={newForm.price}
+    //                 name="price"
+    //                 placeholder="Price"
+    //                 onChange={handlePriceChange}
+    //                 min={0}
+    //                 required
+    //             />
+    //         </label>
+    //         <label htmlFor="Quantity" className="col">
+    //             Quantity: 
+    //             <input
+    //                 type="text"
+    //                 value={newForm.quantity}
+    //                 name="quantity"
+    //                 placeholder="Quantity"
+    //                 onChange={handleQuantityChange}
+    //                 min={0}
+    //             />
+    //         </label>
+    //         <label htmlFor="Image URL" className="col">
+    //             Image URL: 
+    //             <input
+    //                 type="text"
+    //                 value={newForm.img}
+    //                 name="img"
+    //                 placeholder="Image URL"
+    //                 onChange={handleImgChange}
+    //             />
+    //         </label>
+    //         <label htmlFor="Description" className="col">
+    //             Description: 
+    //             <textarea
+    //                 style={{resize: "vertical"}}
+    //                 cols={50}
+    //                 rows={10}
+    //                 value={newForm.description}
+    //                 placeholder="Please enter a brief description of your item"
+    //                 onChange={handleDescriptionChange}
+    //             />
+    //         </label>
+    //         <input type="submit" value="Add Item to Store" className="submit-button"/>
+    //     </form>
+    // )
+
+    return (
+        <div className="NewItem">
+            <Link to="/items">
+                <button>Back to Your Items</button>
+            </Link>
+            <Card style={{ width: '18rem' }}>
+  <ListGroup variant="flush">
+    <ListGroup.Item
+            htmlFor="Name" className="col">
                 Name: 
                 <input
                     type="text"
@@ -55,9 +123,9 @@ const NewItem = (props) => {
                     onChange={handleNameChange}
                     required
                     autoFocus
-                />
-            </label>
-            <label htmlFor="Price">
+                /></ListGroup.Item>
+    <ListGroup.Item
+            htmlFor="Price" className="col">
                 Price (USD): 
                 <input
                     type="text"
@@ -68,8 +136,9 @@ const NewItem = (props) => {
                     min={0}
                     required
                 />
-            </label>
-            <label htmlFor="Quantity">
+    </ListGroup.Item>
+    <ListGroup.Item
+        htmlFor="Quantity" className="col">
                 Quantity: 
                 <input
                     type="text"
@@ -79,8 +148,9 @@ const NewItem = (props) => {
                     onChange={handleQuantityChange}
                     min={0}
                 />
-            </label>
-            <label htmlFor="Image URL">
+    </ListGroup.Item>
+    <ListGroup.Item
+    htmlFor="Image URL" className="col">
                 Image URL: 
                 <input
                     type="text"
@@ -89,29 +159,22 @@ const NewItem = (props) => {
                     placeholder="Image URL"
                     onChange={handleImgChange}
                 />
-            </label>
-            <label htmlFor="Description">
-                Description: 
-                <textarea
-                    style={{resize: "vertical"}}
-                    cols={50}
-                    rows={10}
-                    value={newForm.description}
-                    placeholder="Please enter a brief description of your item"
-                    onChange={handleDescriptionChange}
-                />
-            </label>
-            <input type="submit" value="Add Item to Store" />
-        </form>
-    )
-
-
-    return (
-        <div className="NewItem">
-            <Link to="/items">
-                <button>Back to Your Items</button>
-            </Link>
-            {form}
+    </ListGroup.Item>
+    <ListGroup.Item
+    htmlFor="Description" className="col">
+    Description: 
+    <textarea
+        style={{resize: "vertical"}}
+        cols={50}
+        rows={10}
+        value={newForm.description}
+        placeholder="Please enter a brief description of your item"
+        onChange={handleDescriptionChange}
+    />
+    </ListGroup.Item>
+                </ListGroup>
+</Card>
+            {/* {form} */}
         </div>
     )
 }
