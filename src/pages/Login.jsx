@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router';
 import { GlobalCtx } from '../App';
+import { useState } from 'react';
 // import Validation from '../components/SignUpPages/Validation';
-
 
 
 const Login = (props) => {
 
-    const {gState,setGState} = React.useContext(GlobalCtx)
+    const {gState,setGState} = useContext(GlobalCtx)
     const {url} = gState
     const navigate = useNavigate()
 
     const blank = {
         username:"",
-        password: ""
+        password: "",
+        isSeller: false
     }
 
-    const [form, setForm] = React.useState(blank)
+    const [form, setForm] = useState(blank)
 
 
 
@@ -27,25 +28,31 @@ const Login = (props) => {
         });
     };
 
+      const isSellerTrue = () => {
+        setForm({
+            ...form,
+            isSeller:true
+        })
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const {username, password} = form
+        const {username, password, isSeller} = form
 
         fetch (`${url}/auth/login`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body:JSON.stringify({username, password})
+            body:JSON.stringify({username, password, isSeller})
         })
         .then(response => response.json())
         .then(data => {
             console.log(data)
             window.localStorage.setItem("token", JSON.stringify(data))
-            setGState({...gState, token: data.token})
-            setForm(blank)
-            navigate("/")
+            setGState({...gState, token: data.token, userData: data.userData})
+            data.userData._doc.isSeller = true ? navigate("/items") : navigate("/allitems")
+            // setForm(blank)
         });
     };
 
@@ -65,6 +72,12 @@ return (
                 value={form.password}
                 onChange={handleChange}
             />
+             <input
+                    type="radio"
+                    id="seller"
+                    name="isSeller"
+                    onChange = {isSellerTrue}
+                />
             <input
             type="submit" value="Login"
             />

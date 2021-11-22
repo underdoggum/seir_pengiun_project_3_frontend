@@ -13,7 +13,8 @@ const SignUp = (props) => {
 
     const blank = {
         username:"",
-        password: ""
+        password: "",
+        isSeller: false
     }
 
     const [form, setForm] = useState(blank)
@@ -25,18 +26,24 @@ const SignUp = (props) => {
         });
     };
 
+    const isSellerTrue = () => {
+        setForm({
+            ...form,
+            isSeller:true
+        })
+    }
 
     const handleSubmit = (event) => {
         console.table(form)
         event.preventDefault()
-        const {username, password} = form;
+        const {username, password, isSeller} = form;
 
         fetch (`${url}/auth/signup`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body:JSON.stringify({username, password})
+            body:JSON.stringify({username, password, isSeller})
         })
         .then(response => response.json())
         .then(data => {
@@ -69,8 +76,8 @@ const SignUp = (props) => {
                     type="radio"
                     id="seller"
                     name="isSeller"
-                    value={true}
-                    defaultChecked
+                    onChange = {isSellerTrue}
+                    // defaultChecked
                 />
                 <label htmlFor="seller">Restaurant</label><br />
                 <input
