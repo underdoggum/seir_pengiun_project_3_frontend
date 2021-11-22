@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* NAV STYLING */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid grey;
+  padding: 4px;
+}
+
+.App > Link {
+  text-align: center;
+  text-decoration: none;
+}
+
+/* FORM STYLING */
+
+input[type="text"] input [type="password"] input[type="submit"] {
+  padding: 5px;
+  margin: 8px;
+  background-color: lightgrey;
+  border: none;
+}
