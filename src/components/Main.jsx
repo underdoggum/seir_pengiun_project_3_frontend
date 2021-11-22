@@ -139,7 +139,9 @@ const allItems = [
     const deleteItem = async id => {
         await fetch(url + "/items/" + id, {
             method: "delete",
-            Authorization: `bearer ` + token
+            headers: {
+                Authorization: `bearer ` + token
+            }  
         });
         getItems();
     }
