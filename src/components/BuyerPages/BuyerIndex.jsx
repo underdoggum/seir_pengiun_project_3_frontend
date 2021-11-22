@@ -127,6 +127,4 @@ const BuyerIndex = (props) => {
     }
 }
 
-// }
-
 export default BuyerIndex
