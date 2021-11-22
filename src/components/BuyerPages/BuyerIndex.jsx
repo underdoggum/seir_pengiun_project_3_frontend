@@ -37,16 +37,17 @@ const BuyerIndex = (props) => {
 
     // remove an item from the buyer's cart
     const removeFromCart = (cartItem) => {
-        // remove the item in cart where the index matches the cartItem id
+        const oldCartItems = [...cart]
         const index = cart.findIndex(c => c._id === cartItem._id)
-        cart.splice(index, 1)
+        oldCartItems.splice(index, 1)
+        setCart(oldCartItems)
     }
 
     // used in shopping cart modal to calculate current running subtotal
     const calcCurrentSubtotal = () => {
         let sum = 0
-        cart.forEach(item => {
-            sum += item.price
+        cart.forEach(cItem => {
+            sum += cItem.price
         })
         return sum
     }
@@ -125,7 +126,5 @@ const BuyerIndex = (props) => {
         return <h1>Loading...</h1>
     }
 }
-
-// }
 
 export default BuyerIndex
