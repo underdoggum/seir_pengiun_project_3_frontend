@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Main from './components/Main';
-import MainCopy from './components/MainCopy';
+// import MainCopy from './components/MainCopy';
 import Footer from './components/Footer';
 // import Form from './components/SignUpPages/Form';
 import {Route, Link, Routes} from "react-router-dom"
@@ -32,7 +32,7 @@ useEffect(()=>{
         <Link to="/"><h1>UNWASTED</h1></Link>
         <Header/>
             <Routes>
-              <Route path = "/*" element={ gState.token ? <MainCopy/> :  <Home/> }/>
+              <Route path = "/*" element={ gState.token ? <Main/> :  <Home/> }/>
               <Route path ="/signup" element={<SignUp/>}/>
               <Route path ="/login" element={<Login/>}/>
               {/* <Route path ="/dashboard" element={<h1>Dashboard</h1>}/> */}

@@ -1,17 +1,21 @@
-import {useEffect, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import {Route, Routes} from "react-router-dom"
 import EditItem from "../pages/EditItem"
 import Index from "../pages/Index"
 import NewItem from "../pages/NewItem"
 import { Link } from "react-router-dom"
+import { GlobalCtx } from "../App"
 import BuyerIndex from "./BuyerPages/BuyerIndex"
 import BuyerShow from "./BuyerPages/BuyerShow"
 
 const Main = (props) => {
+
+    const {gState, setGState} = useContext(GlobalCtx)
+    const {url, token} = gState;
     const [items, setItems] = useState(null)
-    
-    // dummy info, waiting until we can get user-specific items to replace this with all the items and store in a state, similar to the above maybe?
-    const allItems = [
+
+// dummy info, waiting until we can get user-specific items to replace this with all the items and store in a state, similar to the above maybe?
+const allItems = [
     {
         _id: "1dummy",
         name: "item1",
@@ -93,19 +97,24 @@ const Main = (props) => {
         img: "https://www.keepingussafe.org/wp-content/uploads/2017/08/Crash-Dummy1.jpg"
     }]
 
-    const URL = "https://unwasted-backend.herokuapp.com/items/"
 
     const getItems = async () => {
-        const response = await fetch(URL)
+        const response = await fetch(url + "/items/", {
+            method: "get",
+            headers: {
+                Authorization: "bearer " + token
+            }
+        })
         const data = await response.json()
         setItems(data)
     }
 
     const createItem = async (item) => {
-        await fetch(URL, {
+        await fetch(url + "/items/", {
             method: "post",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `bearer ` + token
             },
                 body: JSON.stringify(item)
         })
@@ -114,10 +123,11 @@ const Main = (props) => {
 
     // updateItems function (needs to be passed into EditItem.jsx)
     const updateItem = async (item, id) => {
-        await fetch(URL + id, {
+        await fetch(url + "/items/" + id, {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `bearer ` + token
             },
             body: JSON.stringify(item),
         })
@@ -127,8 +137,9 @@ const Main = (props) => {
 
     // deleteItems function (needs to be passed into Index.jsx)
     const deleteItem = async id => {
-        await fetch(URL + id, {
+        await fetch(url + "/items/" + id, {
             method: "delete",
+            Authorization: `bearer ` + token
         });
         getItems();
     }
