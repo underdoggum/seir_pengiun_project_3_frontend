@@ -105,13 +105,14 @@ const NewItem = (props) => {
     //     </form>
     // )
 
+    
     return (
         <div className="NewItem">
             <Link to="/items">
                 <button>Back to Your Items</button>
             </Link>
             <Card style={{ width: '18rem' }}>
-  <ListGroup variant="flush">
+  <ListGroup.Item variant="flush">
     <ListGroup.Item
             htmlFor="Name" className="col">
                 Name: 
@@ -172,7 +173,10 @@ const NewItem = (props) => {
         onChange={handleDescriptionChange}
     />
     </ListGroup.Item>
-                </ListGroup>
+    <ListGroup.Item
+                type="submit" value="Add Item to Store" className="submit-button"
+                />
+    </ListGroup.Item>
 </Card>
             {/* {form} */}
         </div>
