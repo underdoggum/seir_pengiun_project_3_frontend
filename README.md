@@ -39,6 +39,9 @@ ADD LOGIN INFO
 | Delete         | /items                      | DELETE    | Delete the item selected within the list                     |
 | Edit           | /editItem/:id               | PUT       | Edit the item that was selected in the Index                 |
 | Create         | /newItem                    | POST      | Show info about one item                                     |
+| Create         | /newItem                    | POST      | Show info about one item                                     |
+
+
 
 ## User Stories
 - Users can create an account (as either a seller or a buyer) or log in
