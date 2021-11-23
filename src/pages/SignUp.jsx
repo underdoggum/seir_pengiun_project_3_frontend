@@ -14,10 +14,7 @@ const SignUp = (props) => {
     const blank = {
         username:"",
         password: "",
-        isSeller: false,
-        sellerName: "",
-        phoneNumber: "",
-        email: ""
+        isSeller: false
     }
 
     const [form, setForm] = useState(blank)
@@ -32,18 +29,24 @@ const SignUp = (props) => {
         });
     };
 
+    const isSellerTrue = () => {
+        setForm({
+            ...form,
+            isSeller:true
+        })
+    }
 
     const handleSubmit = (event) => {
         console.table(form)
         event.preventDefault()
-        const {username, password, isSeller, sellerName, phoneNumber, email} = form;
+        const {username, password, isSeller} = form;
 
         fetch (`${url}/auth/signup`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body:JSON.stringify({username, password, isSeller, sellerName, phoneNumber, email})
+            body:JSON.stringify({username, password, isSeller})
         })
         .then(response => response.json())
         .then(data => {
@@ -103,7 +106,8 @@ const SignUp = (props) => {
                     type="radio"
                     id="seller"
                     name="isSeller"
-                    value={true}
+                    onChange = {isSellerTrue}
+                    // defaultChecked
                 />
                 <label htmlFor="seller">Restaurant</label><br />
                 <input
@@ -113,7 +117,7 @@ const SignUp = (props) => {
                     value={false}
                     onClick={() => setDisplayedForm(buyerForm)}
                 />
-                <label htmlFor="seller">Buyer</label><br />
+                <label htmlFor="seller">Buyer</label>
 
                 <input 
                     type="text"
