@@ -8,6 +8,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import SignUp from './pages/SignUp';
 import Login from "./pages/Login"
 import Home from "./pages/Home"
+import BuyerIndex from './components/BuyerPages/BuyerIndex';
+
 
 
 
@@ -15,7 +17,7 @@ export const GlobalCtx = createContext(null)
  
 
 function App() {
-  const [gState, setGState] = useState({ url:"https://unwasted-backend.herokuapp.com", token: null});
+  const [gState, setGState] = useState({ userData: null, url:"https://unwasted-backend.herokuapp.com", token: null});
 
 //seeing if already logged in
 useEffect(()=>{

@@ -51,3 +51,5 @@ ADD LOGIN INFO
 
 ## Challenges
 - One major challenge involved determining the scope of work to be accomplished within the project's timeframe. We had to refactor many of the cool features we originally wanted to implement in a way that had us reach MVP with our app first, and only then tack on additional functionality to ensure that we, at the minimum, reached MVP and allowed time for bug-fixing.
+
+- We struggled to figure out how to use the user's data type (buyer or seller) to determine where to route them after logging in. Then we realized that the backend should be responsible for sending the user data, so the frontend would only need to fetch this data to conditionally determine what route the user would go to after logging in
