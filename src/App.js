@@ -48,6 +48,3 @@ useEffect(()=>{
 }
 
 export default App;
-
-
-//
