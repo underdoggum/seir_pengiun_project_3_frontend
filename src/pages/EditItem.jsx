@@ -109,8 +109,8 @@ const EditItem = (props) => {
 
     return (
         <div className="EditItem">
-            <Link to="/items">
-                <button>Back to Your Items</button>
+            <Link className="back-button" to="/items">
+                <button className="back-button">Back to Your Items</button>
             </Link>
             <Card style={{ width: '40rem' }}>
                 <ListGroup>

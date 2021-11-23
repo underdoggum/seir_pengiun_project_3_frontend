@@ -18,12 +18,11 @@ const Header = (props) => {
 
     return (
         <nav className="nav">
-            <Link to="/signup"><h2>Sign Up</h2></Link>
-            <Link to="/login"><h2>Login</h2></Link>
-            {logout}
+            <Link to="/signup" className="signup-button top-button"><h2>Sign Up</h2></Link>
+            <Link to="/login" className="login-button top-button"><h2>Login</h2></Link>
+            <div className="logout-button top-button">{logout}</div>
         </nav>
     );
 };
 
 export default Header;
- 
