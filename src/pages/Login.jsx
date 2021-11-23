@@ -74,13 +74,13 @@ return (
                 onChange={handleChange}
                 placeholder="Password"
             />
-             <input
+             {/* <input
                     type="radio"
                     id="seller"
                     name="isSeller"
                     onChange = {isSellerTrue}
                 />
-                <label htmlFor="seller">Restaurant</label><br/>
+                <label htmlFor="seller">Restaurant</label><br/> */}
             <input
             type="submit" value="Login"
             />
