@@ -1,6 +1,6 @@
 const Footer = (props) => {
-    return <div>
-        <p> Copyright &copy; 2021 </p>
+    return <div className="text-center text-muted mt-5">
+        <p>Un-wasted | Copyright &copy; 2021 </p>
     </div>
 }
 

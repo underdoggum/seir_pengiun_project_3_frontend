@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { GlobalCtx } from '../App';
 // import Validation from '../components/SignUpPages/Validation';
@@ -18,9 +18,6 @@ const SignUp = (props) => {
     }
 
     const [form, setForm] = useState(blank)
-
-    // state for which form is displayed based on radio button selection
-    const [displayedForm, setDisplayedForm] = useState(null)
 
     const handleChange = (event) => {
         setForm({
@@ -57,26 +54,9 @@ const SignUp = (props) => {
     };
 
 
-    // form only for buyers
-    const buyerForm = (
+    const sellerForm = (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="radio"
-                    id="seller"
-                    name="isSeller"
-                    value={true}
-                    onClick={() => setDisplayedForm(sellerForm)}
-                />
-                <label htmlFor="seller">Restaurant</label><br />
-                <input
-                    type="radio"
-                    id="buyer"
-                    name="isSeller"
-                    value={false}
-                />
-
-                <label htmlFor="seller">Buyer</label><br />
+            <form onSubmit = {handleSubmit}>
                 <input 
                     type="text"
                     name="username"
@@ -91,17 +71,7 @@ const SignUp = (props) => {
                     onChange={handleChange}
                     placeholder="Password"
                 /> <br />
-                <input
-                type="submit" value="Sign Up"
-                />
-            </form>
-        </div>
-    )
 
-    // form only for sellers
-    const sellerForm = (
-        <div>
-            <form onSubmit={handleSubmit}>
                 <input
                     type="radio"
                     id="seller"
@@ -115,24 +85,9 @@ const SignUp = (props) => {
                     id="buyer"
                     name="isSeller"
                     value={false}
-                    onClick={() => setDisplayedForm(buyerForm)}
                 />
-                <label htmlFor="seller">Buyer</label>
+                <label htmlFor="seller">Buyer</label><br />
 
-                <input 
-                    type="text"
-                    name="username"
-                    value={form.username}
-                    onChange={handleChange}
-                    placeholder="Username"
-                /> <br />
-                <input 
-                    type="password"
-                    name="password"
-                    value={form.password}
-                    onChange={handleChange}
-                    placeholder="Password"
-                /> <br />
                 <input
                     type="text"
                     name="sellerName"
@@ -162,14 +117,13 @@ const SignUp = (props) => {
         </div>
     )
 
-    useEffect(() => {
-        setDisplayedForm(buyerForm)    
-    }, [])
 
-    // return whichever form the user chooses from the radio buttons
+    // if user is a seller, return seller form
     return (
-        displayedForm
+        sellerForm
     )
+
+    // if user 
 }
 
 export default SignUp
