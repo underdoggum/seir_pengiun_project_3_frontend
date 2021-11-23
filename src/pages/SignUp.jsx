@@ -86,7 +86,7 @@ const SignUp = (props) => {
                     name="isSeller"
                     value={false}
                 />
-                <label htmlFor="seller">Buyer</label><br />
+                <label htmlFor="seller">Buyer</label>
 
                 <input
                     type="text"

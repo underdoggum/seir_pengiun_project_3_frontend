@@ -51,8 +51,8 @@ const Login = (props) => {
             console.log(data)
             window.localStorage.setItem("token", JSON.stringify(data))
             setGState({...gState, token: data.token, userData: data.userData})
-            data.userData._doc.isSeller = true ? navigate("/items") : navigate("/allitems")
-            // setForm(blank)
+            setForm(blank)
+            data.userData._doc.isSeller === true ? navigate("/items") : navigate("/allItems")
         });
     };
 
@@ -78,6 +78,7 @@ return (
                     name="isSeller"
                     onChange = {isSellerTrue}
                 />
+                <label htmlFor="seller">Restaurant</label><br/>
             <input
             type="submit" value="Login"
             />
