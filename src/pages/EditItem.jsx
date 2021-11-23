@@ -109,7 +109,7 @@ const EditItem = (props) => {
 
     return (
         <div className="EditItem">
-            <Link className="back-button" to="/items">
+            <Link to="/items">
                 <button className="back-button">Back to Your Items</button>
             </Link>
             <Card style={{ width: '40rem' }}>
