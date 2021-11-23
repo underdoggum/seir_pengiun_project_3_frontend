@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
+import { Card, ListGroup, Button } from "react-bootstrap"
 
 const EditItem = (props) => {
     const navigate = useNavigate()
@@ -43,68 +44,67 @@ const EditItem = (props) => {
         navigate("/items")
     }
 
-
-    const form = (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="Name">
-                Name: 
-                <input
-                    type="text"
-                    value={editForm.name}
-                    name="name"
-                    placeholder="Name of Item"
-                    onChange={handleChange}
-                    required
-                    autoFocus
-                />
-            </label>
-            <label htmlFor="Price">
-                Price (USD): 
-                <input
-                    type="text"
-                    value={editForm.price}
-                    name="price"
-                    placeholder="Price"
-                    onChange={handleChange}
-                    min={0}
-                    required
-                />
-            </label>
-            <label htmlFor="Quantity">
-                Quantity: 
-                <input
-                    type="text"
-                    value={editForm.quantity}
-                    name="quantity"
-                    placeholder="Quantity"
-                    onChange={handleChange}
-                    min={0}
-                />
-            </label>
-            <label htmlFor="Image URL">
-                Image URL: 
-                <input
-                    type="text"
-                    value={editForm.img}
-                    name="img"
-                    placeholder="Image URL"
-                    onChange={handleChange}
-                />
-            </label>
-            <label htmlFor="Description">
-                Description: 
-                <textarea
-                    style={{resize: "vertical"}}
-                    cols={50}
-                    rows={10}
-                    value={editForm.description}
-                    placeholder="Please enter a brief description of your item"
-                    onChange={handleDescriptionChange}
-                />
-            </label>
-            <input type="submit" value="Submit changes" />
-        </form>
-    )
+    // const form = (
+    //     <form onSubmit={handleSubmit}>
+    //         <label htmlFor="Name">
+    //             Name: 
+    //             <input
+    //                 type="text"
+    //                 value={editForm.name}
+    //                 name="name"
+    //                 placeholder="Name of Item"
+    //                 onChange={handleChange}
+    //                 required
+    //                 autoFocus
+    //             />
+    //         </label>
+    //         <label htmlFor="Price">
+    //             Price (USD): 
+    //             <input
+    //                 type="number"
+    //                 value={editForm.price}
+    //                 name="price"
+    //                 placeholder="Price"
+    //                 onChange={handleChange}
+    //                 min={0}
+    //                 required
+    //             />
+    //         </label>
+    //         <label htmlFor="Quantity">
+    //             Quantity: 
+    //             <input
+    //                 type="number"
+    //                 value={editForm.quantity}
+    //                 name="quantity"
+    //                 placeholder="Quantity"
+    //                 onChange={handleChange}
+    //                 min={0}
+    //             />
+    //         </label>
+    //         <label htmlFor="Image URL">
+    //             Image URL: 
+    //             <input
+    //                 type="text"
+    //                 value={editForm.img}
+    //                 name="img"
+    //                 placeholder="Image URL"
+    //                 onChange={handleChange}
+    //             />
+    //         </label>
+    //         <label htmlFor="Description">
+    //             Description: 
+    //             <textarea
+    //                 style={{resize: "vertical"}}
+    //                 cols={50}
+    //                 rows={10}
+    //                 value={editForm.description}
+    //                 placeholder="Please enter a brief description of your item"
+    //                 onChange={handleDescriptionChange}
+    //             />
+    //         </label>
+    //         <input type="submit" value="Submit changes" />
+    //     </form>
+    // )
 
 
     return (
@@ -112,7 +112,73 @@ const EditItem = (props) => {
             <Link to="/items">
                 <button>Back to Your Items</button>
             </Link>
-            {form}
+            <Card style={{ width: '40rem' }}>
+                <ListGroup>
+                    <ListGroup.Item htmlFor="Name">
+                        Name: 
+                        <input
+                            type="text"
+                            value={editForm.name}
+                            name="name"
+                            placeholder="Name of Item"
+                            onChange={handleChange}
+                            required
+                            autoFocus
+                        />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Price">
+                        Price (USD): 
+                        <input
+                            type="number"
+                            value={editForm.price}
+                            name="price"
+                            placeholder="Price"
+                            onChange={handleChange}
+                            min={0}
+                            required
+                        />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Quantity">
+                        Quantity: 
+                        <input
+                            type="number"
+                            value={editForm.quantity}
+                            name="quantity"
+                            placeholder="Quantity"
+                            onChange={handleChange}
+                            min={0}
+                        />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Image URL">
+                        Image URL: 
+                        <input
+                            type="text"
+                            value={editForm.img}
+                            name="img"
+                            placeholder="Image URL"
+                            onChange={handleChange}
+                        />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Description">
+                        Description: 
+                        <textarea
+                            style={{resize: "vertical"}}
+                            cols={50}
+                            rows={10}
+                            value={editForm.description}
+                            placeholder="Please enter a brief description of your item"
+                            onChange={handleDescriptionChange}
+                        />
+                    </ListGroup.Item>
+                    <Button
+                        type="submit" 
+                        value="Submit changes"
+                        onClick={handleSubmit}
+                        >Edit Item
+                    </Button>
+                </ListGroup>
+            </Card>
+            {/* {form} */}
         </div>
     )
 }
