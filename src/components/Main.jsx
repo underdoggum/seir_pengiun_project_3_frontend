@@ -152,13 +152,13 @@ const allItems = [
 
     return <main>
         {/* The below link just for our use, will need to refactor depending on how the landing page develops with user auth */}
-        <Link to="/items">
-            <button>See all items</button>
+        <Link className="all-item-button" to="/items">
+            <button className="all-item-button main-button">See all items</button>
         </Link>
 
         {/* buyerIndex testing (delete or there will be a merge conflict!!!) */}
         <Link to="/allItems">
-            <button>You're a buyer, and would get redirected here</button>
+            <button className="buyer-button main-button">You're a buyer, and would get redirected here</button>
         </Link>
         
 

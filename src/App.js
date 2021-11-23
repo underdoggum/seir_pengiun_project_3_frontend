@@ -29,7 +29,7 @@ useEffect(()=>{
   return (
     <GlobalCtx.Provider value={{ gState, setGState }}>
       <div className="App">
-        <Link to="/"><h1>UNWASTED</h1></Link>
+        <Link to="/" className="unwasted-title"><h1 className="unwasted-title">Un-wasted</h1></Link>
         <Header/>
             <Routes>
               <Route path = "/*" element={ gState.token ? <Main/> :  <Home/> }/>
