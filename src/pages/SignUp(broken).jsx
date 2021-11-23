@@ -26,6 +26,9 @@ const SignUp = (props) => {
     const [displayedForm, setDisplayedForm] = useState(null)
 
     const handleChange = (event) => {
+        console.log("target name", event.target.name)
+        console.log("target value", event.target.value)
+
         setForm({
             ...form,
             [event.target.name]: event.target.value
