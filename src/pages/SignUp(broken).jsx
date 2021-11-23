@@ -14,7 +14,10 @@ const SignUp = (props) => {
     const blank = {
         username:"",
         password: "",
-        isSeller: false
+        isSeller: false,
+        sellerName: "",
+        phoneNumber: "",
+        email: ""
     }
 
     const [form, setForm] = useState(blank)
@@ -23,30 +26,27 @@ const SignUp = (props) => {
     const [displayedForm, setDisplayedForm] = useState(null)
 
     const handleChange = (event) => {
+        console.log("target name", event.target.name)
+        console.log("target value", event.target.value)
+
         setForm({
             ...form,
             [event.target.name]: event.target.value
         });
     };
 
-    const isSellerTrue = () => {
-        setForm({
-            ...form,
-            isSeller:true
-        })
-    }
 
     const handleSubmit = (event) => {
         console.table(form)
         event.preventDefault()
-        const {username, password, isSeller} = form;
+        const {username, password, isSeller, sellerName, phoneNumber, email} = form;
 
         fetch (`${url}/auth/signup`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body:JSON.stringify({username, password, isSeller})
+            body:JSON.stringify({username, password, isSeller, sellerName, phoneNumber, email})
         })
         .then(response => response.json())
         .then(data => {
@@ -106,8 +106,7 @@ const SignUp = (props) => {
                     type="radio"
                     id="seller"
                     name="isSeller"
-                    onChange = {isSellerTrue}
-                    // defaultChecked
+                    value={true}
                 />
                 <label htmlFor="seller">Restaurant</label><br />
                 <input
@@ -117,7 +116,7 @@ const SignUp = (props) => {
                     value={false}
                     onClick={() => setDisplayedForm(buyerForm)}
                 />
-                <label htmlFor="seller">Buyer</label>
+                <label htmlFor="seller">Buyer</label><br />
 
                 <input 
                     type="text"

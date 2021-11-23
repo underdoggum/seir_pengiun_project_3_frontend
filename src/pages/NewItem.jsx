@@ -112,76 +112,69 @@ const NewItem = (props) => {
                 <button>Back to Your Items</button>
             </Link>
             <Card style={{ width: '40rem' }}>
-  <ListGroup variant="flush">
-    <ListGroup.Item
-            htmlFor="Name" className="col">
-                Name: 
-                <input
-                    type="text"
-                    value={newForm.name}
-                    name="name"
-                    placeholder="Name of Item"
-                    onChange={handleNameChange}
-                    required
-                    autoFocus
-                /></ListGroup.Item>
-    <ListGroup.Item
-            htmlFor="Price" className="col">
-                Price (USD): 
-                <input
-                    type="text"
-                    value={newForm.price}
-                    name="price"
-                    placeholder="Price"
-                    onChange={handlePriceChange}
-                    min={0}
-                    required
-                />
-    </ListGroup.Item>
-    <ListGroup.Item
-        htmlFor="Quantity" className="col">
-                Quantity: 
-                <input
-                    type="text"
-                    value={newForm.quantity}
-                    name="quantity"
-                    placeholder="Quantity"
-                    onChange={handleQuantityChange}
-                    min={0}
-                />
-    </ListGroup.Item>
-    <ListGroup.Item
-    htmlFor="Image URL" className="col">
-                Image URL: 
-                <input
-                    type="text"
-                    value={newForm.img}
-                    name="img"
-                    placeholder="Image URL"
-                    onChange={handleImgChange}
-                />
-    </ListGroup.Item>
-    <ListGroup.Item
-    htmlFor="Description" className="col">
-    Description: 
-    <textarea
-        style={{resize: "vertical"}}
-        cols={50}
-        rows={10}
-        value={newForm.description}
-        placeholder="Please enter a brief description of your item"
-        onChange={handleDescriptionChange}
-    />
-    </ListGroup.Item>
-        <Button
-        type="submit" 
-        value="Add Item to Store" 
-        className="submit-button"
-        onClick={handleSubmit}
-        >Add Item
-        </Button>
-    </ListGroup>
-</Card>
+                <ListGroup variant="flush">
+                    <ListGroup.Item htmlFor="Name" className="col">
+                    Name: 
+                    <input
+                        type="text"
+                        value={newForm.name}
+                        name="name"
+                        placeholder="Name of Item"
+                        onChange={handleNameChange}
+                        required
+                        autoFocus
+                    /></ListGroup.Item>
+                    <ListGroup.Item htmlFor="Price" className="col">
+                        Price (USD): 
+                        <input
+                            type="text"
+                            value={newForm.price}
+                            name="price"
+                            placeholder="Price"
+                            onChange={handlePriceChange}
+                            min={0}
+                            required
+                    /></ListGroup.Item>
+                    <ListGroup.Item htmlFor="Quantity" className="col">
+                        Quantity: 
+                        <input
+                            type="text"
+                            value={newForm.quantity}
+                            name="quantity"
+                            placeholder="Quantity"
+                            onChange={handleQuantityChange}
+                            min={0}
+                    />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Image URL" className="col">
+                        Image URL: 
+                        <input
+                            type="text"
+                            value={newForm.img}
+                            name="img"
+                            placeholder="Image URL"
+                            onChange={handleImgChange}
+                        />
+                    </ListGroup.Item>
+                    <ListGroup.Item htmlFor="Description" className="col">
+                        Description: 
+                        <textarea
+                            style={{resize: "vertical"}}
+                            cols={50}
+                            rows={10}
+                            value={newForm.description}
+                            placeholder="Please enter a brief description of your item"
+                            onChange={handleDescriptionChange}
+                    /></ListGroup.Item>
+                    <Button
+                        type="submit" 
+                        value="Add Item to Store" 
+                        className="submit-button"
+                        onClick={handleSubmit}
+                        >Add Item
+                    </Button>
+                </ListGroup>
+            </Card>
             {/* {form} */}
         </div>
     )
